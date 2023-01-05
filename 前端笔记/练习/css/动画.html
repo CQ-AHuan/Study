@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 定义动画 */
+        @keyframes abc {
+            /* 0s的样式 */
+            0% {
+                transform: rotate(0deg);
+            }
+            /* 1s的样式 */
+            50% {
+                transform: rotate(270deg);
+            }
+            /* 2s的样式 */
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 150px;
+            transform-origin: left top;
+            /* 使用动画 */
+            /* 动画(keyframes)名字 一个周期的时长 动画节奏 是否循环 */
+            animation: abc 2s linear infinite;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+</body>
+</html>

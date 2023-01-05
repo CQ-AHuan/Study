@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #a {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="a" style="background-color: green;"></div>
+
+    <script>
+
+        const el = document.querySelector('#a');
+
+        // 在原有的样式上，添加8px的圆角
+        // 不能复制background-color: green;
+        const style = el.getAttribute('style'); // 'background-color: green;'
+        el.setAttribute('style', style + 'border-radius: 8px;');
+
+        // // 新增属性
+        // el.setAttribute('class', 'b');
+
+        // // 删除属性 >>> <div class="b"></div>
+        // el.removeAttribute('id');
+
+        // // 修改属性
+        // el.setAttribute('class', 'c');
+
+        // // 查询属性值
+        // console.log( el.getAttribute('id') ); // null
+
+    </script>
+</body>
+</html>

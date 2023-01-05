@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="counter">999</div>
+    <button>+1</button>
+
+    <script>
+        // 点击+1   #counter中的数字一直增加
+        const btn = document.querySelector('button');
+        const counter = document.querySelector('#counter');
+
+        btn.addEventListener('click', () => {
+            counter.innerText++;
+        });
+
+    </script>
+</body>
+</html>

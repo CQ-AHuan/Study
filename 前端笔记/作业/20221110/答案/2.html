@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        form {
+            width: 400px;
+            outline: 1px solid red;
+            padding: 32px;
+        }
+
+        .row {
+            display: flex;
+            /* align-items: center; */
+            margin-bottom: 16px;
+        }
+
+        .row .label {
+            width: 120px;
+            text-align: right;
+            margin-right: 16px;
+        }
+
+        .row .content {
+            flex: 1;
+        }
+
+        .row .content>* {
+            height: 100%;
+            width: 100%;
+        }
+
+       .row .content>textarea {
+            height: 200px;
+            resize: none;
+        }
+
+        .require {
+            color: red;
+        }
+
+        .btns {
+            margin-left: 136px;
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <div class="row">
+            <div class="label">Top coders:</div>
+            <div class="content">
+                <input type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="label">
+                <span class="require">*</span>
+                Bio:
+            </div>
+            <div class="content">
+                <textarea></textarea>
+            </div>
+        </div>
+        <div class="btns">
+            <button>Submit</button>
+            <button>Reset</button>
+        </div>
+    </form>
+</body>
+</html>

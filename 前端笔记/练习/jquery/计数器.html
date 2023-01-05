@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="a">100</div>
+    <button>+1</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <script>
+        const a = $('#a');
+
+        $('button').on('click', () => {
+            const value = +a.text();
+            a.text(value + 1);
+        });
+
+        // let a = 1;
+        // a = a + 1; // >>> a++
+        // const a = document.querySelector('#a');
+        // // a.innerText = a.innerText + 1;
+        // a.innerText++;
+    </script>
+</body>
+</html>

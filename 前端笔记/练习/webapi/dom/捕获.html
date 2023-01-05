@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer {
+            height: 200px;
+            width: 200px;
+            outline: 1px solid red;
+            padding: 50px;
+            box-sizing: border-box;
+        }
+
+        .inner {
+            height: 100px;
+            width: 100px;
+            outline: 1px solid blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+
+    <script>
+
+        const outer = document.querySelector('.outer');
+        const inner = document.querySelector('.inner');
+
+        // 捕获
+        // 内部元素的click事件全部失效
+        outer.addEventListener('click', function (e) {
+            e.stopPropagation();
+            console.log('outer');
+        }, true);
+
+        inner.addEventListener('click', function (e) {
+            console.log('inner');
+        }, true); // 捕获: 从外向内
+
+    </script>
+</body>
+</html>

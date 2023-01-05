@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+        }
+
+        #chart {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+    <script>
+
+        // 根据数据, 完成以下题目
+        const data = [
+            {
+                date: '2019-01-01', // 日期
+                temperature: 10, // 温度
+                unit: 'beijing', // 行政区域
+                weather: 'sunny', // 天气
+                pollution: 31, // 污染指数
+                parentUnit: 'Beijing', // 父行政区域
+            },
+            {
+                date: '2019-01-01',
+                temperature: 11,
+                unit: 'shanghai',
+                weather: 'cloudy',
+                pollution: 30,
+                parentUnit: 'Shanghai',
+            },
+            {
+                date: '2019-01-01',
+                temperature: 12,
+                unit: 'shenzhen',
+                weather: 'sunny',
+                pollution: 39,
+                parentUnit: 'Guangdong',
+            },
+            {
+                date: '2019-01-01',
+                temperature: 13,
+                unit: 'changping',
+                weather: 'cloudy',
+                pollution: 31,
+                parentUnit: 'beijing',
+            },
+            {
+                date: '2019-01-01',
+                temperature: 14,
+                unit: 'fengtai',
+                weather: 'sunny',
+                pollution: 12,
+                parentUnit: 'beijing',
+            },
+            {
+                date: '2019-01-01',
+                temperature: 15,
+                unit: 'haidian',
+                weather: 'cloudy',
+                pollution: 32,
+                parentUnit: 'beijing',
+            },
+            // {
+            //     date: '2019-01-01',
+            //     temperature: 15,
+            //     unit: '五道口',
+            //     weather: 'cloudy',
+            //     pollution: 32,
+            //     parentUnit: 'haidian',
+            // },
+            // {
+            //     date: '2019-01-01',
+            //     temperature: 15,
+            //     unit: '中关村',
+            //     weather: 'cloudy',
+            //     pollution: 32,
+            //     parentUnit: 'haidian',
+            // },
+            {
+                date: '2019-01-01',
+                temperature: 16,
+                unit: 'jingan',
+                weather: 'sunny',
+                pollution: 41,
+                parentUnit: 'shanghai',
+            },
+            {
+                date: '2019-01-01',
+                temperature: 17,
+                unit: 'xuhui',
+                weather: 'cloudy',
+                pollution: 66,
+                parentUnit: 'shanghai',
+            },
+            {
+                date: '2019-01-01',
+                temperature: 18,
+                unit: 'luohu',
+                weather: 'sunny',
+                pollution: 21,
+                parentUnit: 'shenzhen',
+            },
+            {
+                date: '2019-01-01',
+                temperature: 19,
+                unit: 'nanshan',
+                weather: 'cloudy',
+                pollution: 21,
+                parentUnit: 'shenzhen',
+            },
+            {
+                date: '2019-01-01',
+                temperature: 20,
+                unit: 'baoan',
+                weather: 'sunny',
+                pollution: 32,
+                parentUnit: 'shenzhen',
+            },
+        ];
+
+        // 41. 统计shanghai的所有子行政区域, 并按温度从高到低排序
+        // 天气渲染为柱状图
+        const childrenOfShanghai = data
+            // .filter(d => d.parentUnit === 'shanghai')
+            .sort((a, b) => b.temperature - a.temperature);
+
+        // 1. 初始化
+        const instance = echarts.init(document.querySelector('#chart'));
+
+        // 2. 图表配置项
+        const option = {
+            color: [
+                {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: 'blue' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: 'pink' // 100% 处的颜色
+                    }],
+                },
+                'green',
+            ],
+            xAxis: {
+                type: 'category',
+                data: childrenOfShanghai.map(item => item.unit),
+                axisLabel: {
+                    fontSize: 14,
+                    color: '#fff',
+                    rotate: 45,
+                },
+                axisTick: {
+                    show: false,
+                },
+            },
+            yAxis: {
+                axisLabel: {
+                    fontSize: 14,
+                    color: '#fff',
+                },
+                splitLine: {
+                    show: false,
+                },
+                type: 'value'
+            },
+            series: [
+                {
+                    data: childrenOfShanghai.map(item => item.temperature),
+                    type: 'bar'
+                },
+            ]
+        };
+
+        // 3. 将配置项传入实例
+        instance.setOption(option);
+
+
+    </script>
+</body>
+</html>

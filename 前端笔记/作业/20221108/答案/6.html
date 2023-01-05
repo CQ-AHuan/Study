@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .container {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            position: relative;
+        }
+
+        @keyframes loading {
+            0% {
+                transform: translate(-50%, -50%) scale(.2);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(2);
+            }
+        }
+
+        .dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(.2);
+        }
+
+        .dot:nth-child(1) {
+            left: 25%;
+            animation: loading .9s linear alternate infinite;
+        }
+
+        .dot:nth-child(2) {
+            left: 50%;
+            animation: loading .9s linear alternate infinite .3s;
+        }
+
+        .dot:nth-child(3) {
+            left: 75%;
+            animation: loading .9s linear alternate infinite .6s;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</body>
+</html>

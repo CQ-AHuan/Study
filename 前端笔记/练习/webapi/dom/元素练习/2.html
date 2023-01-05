@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .label {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ol>
+
+        <!-- 期待的li -->
+        <!-- 调试时注释掉 -->
+
+        <li class="label">zs: 18</li>
+        <li class="label">ls: 20</li>
+        <li class="label">ww: 19</li>
+
+    </ol>
+
+    <script>
+        // 2. 根据数据创建元素, 并加入到ol元素中
+        const data = [
+            { name: 'zs', age: 18 },
+            { name: 'ls', age: 20 },
+            { name: 'ww', age: 19 },
+        ];
+
+        const ol = document.querySelector('ol');
+
+        for (const { name, age } of data) {
+            // item: { name: 'zs', age: 18 }
+            // es5
+            // const name = item.name;
+            // const age = item.age;
+
+            // 创建元素
+            const li = document.createElement('li');
+            // 新增属性
+            li.setAttribute('class', 'label');
+            // 添加文本内容
+            li.innerText = `${ name }: ${ age }`;
+            // 将元素追加至ol
+            ol.appendChild(li);
+        }
+
+    </script>
+</body>
+</html>

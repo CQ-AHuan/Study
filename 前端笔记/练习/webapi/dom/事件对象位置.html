@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .win {
+            width: 200px;
+            height: 200px;
+            background-color: brown;
+            margin: 3000px 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="win"></div>
+
+    <script>
+        const win = document.querySelector('.win');
+
+        win.addEventListener('click', (e) => {
+            console.log(e);
+
+            // 点击的位置 以自身元素的左上角为基准
+            // console.log(e.offsetX, e.offsetY)
+
+            // 点击的位置 以客户端窗口的左上角为基准
+            // console.log(e.clientX, e.clientY);
+
+            // 点击的位置 以页面的左上角为基准
+            // console.log(e.pageX, e.pageY);
+        });
+    </script>
+</body>
+</html>

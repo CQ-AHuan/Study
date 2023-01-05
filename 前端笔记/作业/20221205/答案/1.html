@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li.hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text">
+    <button id="add">新增</button>
+    <button id="search">查询</button>
+    <ul>
+<!--
+        <li class="hide" data="aaa">
+            aaa
+            <button>删除</button>
+        </li>
+         -->
+    </ul>
+
+    <script>
+
+        // 实现todolist 新增和删除功能
+        const inp = document.querySelector('input');
+        const btn = document.querySelector('#add');
+        const ul = document.querySelector('ul');
+        const searchBtn = document.querySelector('#search');
+
+        function onClick() {
+            // 新增一个li
+            const li = document.createElement('li');
+            li.innerText = inp.value;
+            li.setAttribute('data', inp.value); // 增加自定义属性
+            ul.appendChild(li);
+
+            // 新增时清空input
+            inp.value = '';
+
+            // 创建删除按钮
+            const removeBtn = document.createElement('button'); // <button></button>
+            removeBtn.innerText = '删除';
+            removeBtn.addEventListener('click', () => {
+                li.remove();
+            });
+            li.appendChild(removeBtn);
+        }
+
+        btn.addEventListener('click', onClick);
+
+        searchBtn.addEventListener('click', () => {
+            const liList = document.querySelectorAll('li');
+            for (const li of liList) {
+                const data = li.getAttribute('data'); // 'aaa'
+                if (data.includes(inp.value)) {
+                    li.removeAttribute('class');
+                } else {
+                    li.setAttribute('class', 'hide');
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

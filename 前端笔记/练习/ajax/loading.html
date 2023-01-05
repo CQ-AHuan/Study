@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>发送</button>
+    <!-- 点击变为下面的按钮 -->
+    <!-- <button>发送中...</button> -->
+
+    <!-- 5:05 -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+        const btn = document.querySelector('button');
+
+        btn.addEventListener('click', function () {
+
+            this.innerText = '发送中...';
+
+            axios({
+                // method: 'get', // 默认值: 'get'
+                url: 'http://47.98.249.40:1234/todo/list',
+            })
+                .then((res) => {
+                    // 成功
+                    this.innerText = '发送';
+                    alert(res.data.msg);
+                })
+                .catch((err) => {
+                    // 失败
+                    this.innerText = '发送';
+                    alert('请求失败');
+                });
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .abc {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="abc">1</div>
+    <div class="abc">2</div>
+    <div class="abc">3</div>
+
+    <script>
+        // 选中
+        // 在html中选中#abc这个元素   DOM对象
+        const el = document.querySelector('.abc');
+        const elements = document.querySelectorAll('.abc'); // 伪数组
+
+        console.dir(el); // 可以展开查看元素的属性/方法
+        console.log(elements);
+
+    </script>
+</body>
+</html>

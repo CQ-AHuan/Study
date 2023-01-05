@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button id="add">新增</button>
+    <button id="search">查询</button>
+    <ul></ul>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <script>
+        const ul = $('ul');
+        const inp = $('input');
+
+        // $('button').on('click', () => {
+        //     const li = $(`<li>${ inp.val() }</li>`);
+        //     const deleteBtn = $('<button>删除</button>');
+        //     deleteBtn.on('click', () => {
+        //         li.remove();
+        //     });
+        //     deleteBtn.appendTo(li);
+        //     li.appendTo(ul);
+        // });
+
+        $('#add').on('click', () => {
+            const val = inp.val();
+            const li = $(`<li data="${ val }">${ val }</li>`).appendTo(ul);
+            $('<button>删除</button>')
+                .on('click', () => {
+                    li.remove();
+                })
+                .appendTo(li);
+
+            inp.val('');
+        });
+
+        $('#search').on('click', () => {
+            $('li').each((i, li) => {
+                const val = $(li).attr('data'); // 'aaa'
+                if (val.includes(inp.val())) {
+                    $(li).show();
+                } else {
+                    $(li).hide();
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            background-color: black;
+        }
+
+        .txt {
+            font-size: 50px;
+            color: black;
+            text-shadow: -2px -2px 4px red, 2px 2px 4px aqua;
+        }
+
+        .txt.active {
+            text-shadow: 2px 2px 4px red, -2px -2px 4px aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="txt">Hello world!</div>
+
+    <script>
+
+        const txt = document.querySelector('.txt');
+
+        let isActive = false;
+
+        setInterval(() => {
+            txt.setAttribute('class', 'txt ' + (isActive ? '' : 'active'));
+            isActive = !isActive;
+        }, 500);
+
+    </script>
+</body>
+</html>

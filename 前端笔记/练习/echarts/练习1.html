@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+        }
+
+        #tel-total {
+            width: 500px;
+            height: 300px;
+            margin: 16px;
+            outline: 1px solid red;
+        }
+
+        #order-total {
+            width: 500px;
+            height: 300px;
+            margin: 16px;
+            outline: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 话务情况统计 -->
+    <div id="tel-total"></div>
+
+    <!-- 工单办结率统计 -->
+    <div id="order-total"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+    <script>
+
+        // 话务情况统计
+        const telTotal = [
+            { type: '呼入话务量', value: 240 },
+            { type: '呼出话务量', value: 200 },
+            { type: '呼入接通量', value: 312 },
+        ];
+
+        // 工单办结率统计
+        const orderTotal = [
+            {
+                type: '人民网',
+                // 受理工单数
+                receive: 100,
+                // 处理工单数
+                deal: 80,
+                // 办结工单数
+                finish: 70,
+            },
+            {
+                type: '中国网',
+                receive: 200,
+                deal: 180,
+                finish: 160,
+            },
+            {
+                type: '新华网',
+                receive: 600,
+                deal: 543,
+                finish: 432,
+            },
+            {
+                type: '微信',
+                receive: 300,
+                deal: 280,
+                finish: 260,
+            },
+            {
+                type: '邮件',
+                receive: 400,
+                deal: 380,
+                finish: 360,
+            },
+        ];
+
+
+        // 1. 初始化echarts
+        const telTotalChart = echarts.init(document.getElementById('tel-total'));
+        const orderTotalChart = echarts.init(document.getElementById('order-total'));
+
+        // 2. 配置项
+        const telOption = {
+            grid: {
+                bottom: 40,
+                right: 20,
+            },
+            color: [
+                {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: '#02a9fc' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: '#0156ff' // 100% 处的颜色
+                    }],
+                },
+            ],
+            xAxis: {
+                type: 'category',
+                data: telTotal.map(item => item.type),
+                axisLabel: {
+                    color: 'rgba(255, 255, 255, .8)',
+                    fontSize: 10,
+                },
+                axisTick: {
+                    show: false,
+                },
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#29376d',
+                    },
+                },
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    color: 'rgba(255, 255, 255, .8)',
+                    fontSize: 10,
+                },
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#29376d',
+                    },
+                },
+                splitLine: {
+                    lineStyle: {
+                        type: [4, 4],
+                        width: 1,
+                        color: ['#31406f'],
+                    },
+                },
+            },
+            series: [
+                {
+                    data: telTotal.map(item => item.value),
+                    type: 'bar',
+                    barWidth: '40%'
+                }
+            ]
+        };
+
+        // 3. 引入配置项
+        telTotalChart.setOption(telOption);
+
+    </script>
+</body>
+</html>

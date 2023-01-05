@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+        // 增(一般为post)
+        axios({
+            method: 'post',
+            url: 'http://47.98.249.40:1234/todo',
+            // 要给服务器的数据
+            data: {
+                name: '张三三',
+                description: '嘿嘿',
+            },
+        })
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+
+    </script>
+
+</body>
+</html>

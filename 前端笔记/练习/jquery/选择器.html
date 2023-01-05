@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="a">hello world!</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <script>
+        const a2 = $('#a'); // 不是直接的DOM元素
+        // const body = $(document.body);
+
+        // // jq 元素属性的增 / 改
+        // a2.attr({
+        //     class: 'b',
+        //     data: 'c',
+        // });
+
+        // // 删
+        // a2.removeAttr('data');
+
+        // // 查
+        // console.log( a2.attr('class') );
+
+        // jq元素
+        // 增
+        // const el = document.createElement('div');
+        const el = $('<div class="a"><div>123</div></div>');
+
+        el.appendTo(a2);
+
+        // $('#a').remove();
+
+        // $('#a').text('123'); // 就是innerText
+        $('#a').html('<abc>abc</abc>'); // 就是innerHTML
+
+
+    </script>
+</body>
+</html>

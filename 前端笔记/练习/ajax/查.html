@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        console.log(axios);
+
+        // 查(通常情况get)
+        axios({ // 配置项
+            // 请求方式
+            method: 'get',
+
+            // 47.98.249.40 服务器的IP
+            // :1234 端口
+            // /todo/list 路由
+            url: 'http://47.98.249.40:1234/todo/list',
+        })
+            // 成功
+            .then((res) => {
+                console.log(res.data); // 服务器返回的数据
+            })
+            // 失败
+            .catch((err) => {
+                console.error(err); // err失败信息
+            });
+
+
+    </script>
+</body>
+</html>

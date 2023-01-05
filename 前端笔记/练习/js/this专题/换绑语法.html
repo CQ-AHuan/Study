@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function fn() {
+            console.log(this);
+        }
+
+        const obj = {
+            a: 1,
+            b: 2,
+        };
+
+        // setTimeout(fn, 1000); // window
+        // setTimeout(fn.bind(obj), 1000); // obj
+
+        fn(); // window
+
+        fn.bind(obj)(); // obj
+        fn.call(obj); // obj
+        fn.apply(obj); // obj
+
+    </script>
+</body>
+</html>

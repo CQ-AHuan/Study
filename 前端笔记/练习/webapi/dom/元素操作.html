@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+
+    <script>
+
+        // 创建元素
+        const el = document.createElement('div'); // <div></div>
+
+        el.setAttribute('class', 'a');
+
+        // 元素中添加文本
+        el.innerText = 'hello world';
+
+        // 追加到父元素
+        document.body.appendChild(el);
+
+        // 删除第三个span
+        const span3 = document.querySelector('span:nth-child(3)');
+        span3.remove();
+
+    </script>
+</body>
+</html>

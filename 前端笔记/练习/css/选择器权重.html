@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 标签选择器 权重为1 */
+        div {
+            color: red;
+        }
+
+        /* 类选择器 权重为10 */
+        .b {
+            color: green;
+        }
+
+        /* id选择器 权重为100 */
+        #a {
+            color: blue;
+        }
+
+        /* 组合选择器 标签名为div并且id为a的元素 权重101 */
+        div#a {
+            color: pink;
+        }
+
+        /* 权重为20 */
+        .b:hover {
+            /* 权重为正无穷+20 */
+            color: orange !important;
+        }
+
+        /* 权重为110 */
+        #a:hover {
+            /* 权重为正无穷+110 */
+            color: #000 !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- 权重为1000 -->
+    <div id="a" class="b" style="color: aqua;">
+        hello world!
+    </div>
+</body>
+</html>

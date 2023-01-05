@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            margin: 0;
+            background-color: black;
+        }
+
+        .chart {
+            width: 500px;
+            height: 300px;
+            margin: 16px;
+            outline: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+    <script>
+
+        const data = [
+            {
+                value: 90,
+                name: 'A',
+            },
+        ];
+
+        const chart = echarts.init(document.querySelector('.chart'));
+        chart.setOption({
+            // 半径固定的
+            radiusAxis: {
+                type: 'category',
+                axisLine: {
+                    show: false,
+                },
+                axisTick: {
+                    show: false,
+                },
+                axisLabel: {
+                    show: false,
+                },
+                splitLine: {
+                    show: false,
+                },
+            },
+            // 度量轴
+            angleAxis: {
+                max: 100,
+                axisLine: {
+                    show: false,
+                },
+                axisTick: {
+                    show: false,
+                },
+                axisLabel: {
+                    show: false,
+                },
+                splitLine: {
+                    show: false,
+                },
+            },
+            // 极坐标系
+            polar: {
+                center: ['50%', '50%'],
+                radius: '80%',
+            },
+            color: [
+                // 渐变色
+                new echarts.graphic.LinearGradient(0, 0, 1, 1, [
+                    { offset: 0, color: '#f00' },
+                    { offset: 1, color: '#00f' },
+                ]),
+            ],
+            series: [
+                {
+                    type: 'bar',
+                    coordinateSystem: 'polar',
+                    barWidth: 10,
+                    roundCap: true,
+                    data: data.map(item => item.value),
+                    showBackground: true,
+                    backgroundStyle: {
+                        color: 'rgba(255, 255, 255, 0.2)',
+                    },
+                }
+            ],
+        });
+
+    </script>
+</body>
+</html>

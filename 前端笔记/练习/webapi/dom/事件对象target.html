@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer {
+            height: 200px;
+            width: 200px;
+            outline: 1px solid red;
+            padding: 50px;
+            box-sizing: border-box;
+        }
+
+        .inner {
+            height: 100px;
+            width: 100px;
+            outline: 1px solid blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+
+    <script>
+
+        const outer = document.querySelector('.outer');
+
+        outer.addEventListener('click', function (e) {
+            // 实际上点击的盒子
+            console.log(e.target);
+        });
+
+    </script>
+</body>
+</html>

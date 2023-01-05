@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            margin: 0;
+            /* background-color: black; */
+        }
+
+        .chart {
+            width: 500px;
+            height: 300px;
+            margin: 16px;
+            outline: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+    <script>
+
+        const data = [
+            { year: '1951 年', sales: 38, value: 12 },
+            { year: '1952 年', sales: 52, value: 20 },
+            { year: '1956 年', sales: 61, value: 30 },
+            { year: '1957 年', sales: 145, value: 55 },
+            { year: '1958 年', sales: 48, value: 63 },
+            { year: '1959 年', sales: 38, value: 91 },
+            { year: '1960 年', sales: 38, value: 8 },
+            { year: '1962 年', sales: 38, value: 12 },
+        ];
+
+        const chart = echarts.init(document.querySelector('.chart'));
+        chart.setOption({
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: data.map(item => item.year),
+                axisLabel: {
+                    show: false,
+                }
+            },
+            yAxis: {
+                type: 'value'
+            },
+            color: ['rgb(255, 0, 0)', 'rgb(0, 0, 255)'],
+            series: [
+                {
+                    data: data.map(item => item.sales),
+                    type: 'line',
+                    areaStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: 'rgba(255, 0, 0, 1)' // 0% 处的颜色
+                            },{
+                                offset: .8, color: 'rgba(255, 0, 0, .5)' // 100% 处的颜色
+                            }, {
+                                offset: 1, color: 'rgba(255, 0, 0, 0)' // 100% 处的颜色
+                            }],
+                            global: false // 缺省为 false
+                        }
+                    }
+                },
+                {
+                    data: data.map(item => item.value),
+                    type: 'line',
+                    areaStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: 'rgba(0, 0, 255, 1)' // 0% 处的颜色
+                            },{
+                                offset: .8, color: 'rgba(0, 0, 255, .5)' // 100% 处的颜色
+                            }, {
+                                offset: 1, color: 'rgba(0, 0, 255, 0)' // 100% 处的颜色
+                            }],
+                            global: false // 缺省为 false
+                        }
+                    }
+                }
+            ]
+        });
+
+    </script>
+</body>
+</html>

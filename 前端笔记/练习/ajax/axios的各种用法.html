@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+        axios({
+            method: 'get',
+            url: 'http://47.98.249.40:1234/todo/list',
+        })
+            .then(res => {
+                // 随便处理数据
+                // 如果出现问题 则代表服务器返回的数据有问题 将会直接进入catch回调
+                console.log(res.data.list.map(d => d));
+            })
+            .catch(err => {
+                console.error(err);
+            });
+
+    </script>
+</body>
+</html>

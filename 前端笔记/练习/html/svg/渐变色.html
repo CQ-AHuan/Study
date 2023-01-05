@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <svg>
+        <!-- 定义 -->
+        <defs>
+            <linearGradient id="linear" x1="0%" y1="0%" x2="0%" y2="100%">
+                <!-- 设置渐变染色 -->
+                <stop offset="40%" stop-color="red"></stop>
+                <stop offset="70%" stop-color="blue"></stop>
+                <stop offset="100%" stop-color="yellow"></stop>
+            </linearGradient>
+        </defs>
+
+        <path fill="none" stroke="url(#linear)" stroke-width="3" d="M 6,10 A 6 4 10 1 1 14,10" />
+    </svg>
+</body>
+</html>

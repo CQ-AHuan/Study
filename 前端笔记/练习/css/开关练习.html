@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 开关 */
+        .switch {
+            width: 200px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 50px;
+            position: relative;
+            transition: background-color 1s ease;
+        }
+
+        .switch:hover {
+            background-color: #aaa;
+        }
+
+        /* 开关按钮 */
+        .btn {
+            width: 80px;
+            height: 80px;
+            background-color: #fff;
+            border-radius: 40px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            transition: all 1s ease;
+            box-shadow: 0 0 12px #000;
+        }
+
+        .switch:hover .btn {
+            /* right: 110px; */
+            transform: translateX(-100px); /* 性能更优（重排重绘）（面试题） */
+        }
+
+        .switch:active .btn {
+            width: 100px;
+            right: -10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="switch">
+        <div class="btn"></div>
+    </div>
+</body>
+</html>

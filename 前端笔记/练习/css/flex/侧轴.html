@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .container {
+            display: flex;
+            height: 100px;
+            outline: 1px solid red;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            outline: 1px solid blue;
+            margin: 0 8px;
+        }
+
+        .line {
+            height: 1px;
+            flex: 1;
+            background-color: blue;
+            margin: 0 8px;
+        }
+
+        .step {
+            display: flex;
+            flex: 1;
+            /* 侧轴居中 */
+            align-items: center;
+        }
+
+        .step:last-child {
+            flex: none;
+        }
+
+        @keyframes loading {
+            100% {
+                transform: translateY(-50%) rotate(360deg);
+            }
+        }
+
+        .step:nth-child(3) .icon {
+            animation: loading 1s linear infinite;
+        }
+
+        .step:nth-child(3) .line {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="step">
+            <div class="icon"></div>
+            Login
+            <div class="line"></div>
+        </div>
+        <div class="step">
+            <div class="icon"></div>
+            Verification111111111111
+            <div class="line"></div>
+        </div>
+        <div class="step">
+            <div class="icon"></div>
+            Pay
+            <div class="line"></div>
+        </div>
+        <div class="step">
+            <div class="icon"></div>
+            Done11111111111
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist 增删  使用state控制渲染</title>
+</head>
+<body>
+
+    <input id="inp" type="text">
+    <button id="btn">新增</button>
+    <button style="display: none;" id="search-btn">查询</button>
+    <ul id="list"></ul>
+
+    <script>
+
+        // 原始数据
+        const data = [
+
+        ];
+
+        // 用来展示的数据
+        let showingData = [];
+        // 记录当前被修改项的index
+        let editingIndex = -1;
+
+        // 选中该选中的
+        const ul = document.querySelector('#list');
+        const inp = document.querySelector('#inp');
+        const btn = document.querySelector('#btn');
+        const searchBtn = document.querySelector('#search-btn');
+
+        // 新增逻辑
+        function onAdd () {
+            // 修改数据
+            data.push(inp.value);
+            // 将data赋值给showingData
+            // 复制数组：arr.concat()
+            showingData = data.concat();
+            // 渲染
+            render();
+        }
+
+        // 删除逻辑
+        function onDelete (index) {
+            // 修改数据
+            data.splice(index, 1);
+            // 将data赋值给showingData
+            // 复制数组：arr.concat()
+            showingData = data.concat();
+            // 渲染
+            render();
+        }
+
+        // 查询逻辑
+        function onSearch () {
+            // 输入的值
+            const inputValue = inp.value;
+            showingData = [];
+            for (const item of data) {
+                // 新知识 str.includes(xxx): str是否包含xxx
+                if (item.includes(inputValue)) {
+                    showingData.push(item);
+                }
+            }
+            // 渲染
+            render();
+        }
+
+        // 修改逻辑
+        function onEdit (index) {
+            editingIndex = index;
+            // 渲染
+            render();
+        }
+
+        // 修改确认逻辑
+        function onEditOk (index) {
+            editingIndex = -1;
+            const editingInput = document.querySelector('#editingInput');
+            data[index] = editingInput.value;
+            // 把改好的data复制给showingData
+            showingData = data.concat();
+            render();
+        }
+
+        // render: 渲染
+        function render () {
+            ul.innerHTML = '';
+            inp.value = '';
+            for (let i = 0; i < showingData.length; i++) {
+                const item = showingData[i];
+                // 创建li
+                const li = document.createElement('li');
+                if (i === editingIndex) {
+                    const input = document.createElement('input');
+                    input.setAttribute('id', 'editingInput');
+                    input.value = item;
+                    li.appendChild(input);
+                } else {
+                    // 创建span
+                    const span = document.createElement('span');
+                    // 把数据给span
+                    span.innerText = item;
+                    li.appendChild(span);
+                }
+                // 创建删除按钮
+                const delBtn = document.createElement('button');
+                delBtn.innerText = '删除';
+                // 将删除逻辑绑定在删除按钮上
+                delBtn.addEventListener('click', function () {
+                    onDelete(i);
+                });
+                // 创建修改按钮
+                const editBtn = document.createElement('button');
+                editBtn.innerText = i === editingIndex ? '确认' : '修改';
+                // 将修改逻辑绑定在修改按钮上
+                editBtn.addEventListener('click', function () {
+                    // 确认逻辑
+                    if (i === editingIndex) {
+                        onEditOk(i);
+                    // 修改逻辑
+                    } else {
+                        onEdit(i);
+                    }
+                });
+
+                // 把button添加至li
+                li.appendChild(delBtn);
+                li.appendChild(editBtn);
+                // 把li添加至li
+                ul.appendChild(li);
+            }
+        }
+
+        // 将新增逻辑绑定在新增按钮上
+        btn.addEventListener('click', onAdd);
+        // 将查询逻辑绑定在查询按钮上
+        searchBtn.addEventListener('click', onSearch);
+        // 将查询逻辑绑定在回车键上
+        document.addEventListener('keydown', function (e) {
+            if (e.keyCode === 13) {
+                onSearch();
+            }
+        });
+
+    </script>
+
+</body>
+</html>

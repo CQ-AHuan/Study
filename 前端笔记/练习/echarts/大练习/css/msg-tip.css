@@ -1,0 +1,102 @@
+.msg-tip {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.msg-tip .tabs {
+    display: flex;
+    padding: 8px;
+    background-color: #2f3769;
+}
+
+.msg-tip .title {
+    background-color: #2f3769;
+}
+
+.msg-tip .tabs .tab {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    margin-right: 4px;
+    line-height: .9;
+}
+
+.msg-tip .tabs .tab.active {
+    background-color: #252b56;
+}
+
+.msg-tip .tabs .tab:hover {
+    background-color: #252b56;
+    cursor: pointer;
+}
+
+.msg-tip .list-wrapper {
+    flex: 1;
+    background-color: #282f5c;
+    padding: 8px;
+    overflow: hidden;
+}
+
+.msg-tip .list {
+    overflow-y: auto;
+    height: 100%;
+}
+
+.msg-tip .list::-webkit-scrollbar {
+    width: 4px;
+    background-color: #1e2552;
+    border-radius: 2px;
+}
+
+.msg-tip .item {
+    display: flex;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.msg-tip .item.danger .icon {
+    color: #a83f65;
+}
+
+.msg-tip .item.warning .icon {
+    color: #d5b458;
+}
+
+.msg-tip .item.info .icon {
+    color: #3c6fa7;
+}
+
+.msg-tip .item .icon {
+    /* margin-top: 2px; */
+    font-size: 18px;
+}
+
+.msg-tip .item .info-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.msg-tip .item .info-title>span:first-child {
+    flex: 1;
+}
+
+.msg-tip .item .info-title .time {
+    color: #6971a5;
+    font-size: 12px;
+}
+
+.msg-tip .item .content {
+    flex: 1;
+    margin-left: 8px;
+    /* 把单词破坏掉 以便于换行 */
+    word-break: break-all;
+}
+
+.msg-tip .item .info-content {
+    color: #6971a5;
+    margin-top: 4px;
+}
+
+

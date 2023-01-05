@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #0f1f38;
+        }
+
+        .moon {
+            background-color: #0f1f38;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+
+        @keyframes move {
+            /* 关键帧 */
+            0% {
+                transform: translate(-60%, -40%);
+            }
+            50% {
+                box-shadow: 0 0 30px #fff;
+            }
+            100% {
+                transform: translate(-40%, -60%);
+            }
+        }
+
+        .moon.fake {
+            background-color: bisque;
+            z-index: -1;
+            animation: move 2s linear alternate infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="moon"></div>
+    <div class="moon fake"></div>
+</body>
+</html>

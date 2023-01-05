@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 100px;
+            /* linear线性 / ease先快后慢 */
+            /* 拥有动画的属性名(默认为all) 动画时长 动画节奏 动画延迟 */
+            transition: width 1s ease 2s;
+            /* 不能自己动 需要触发 */
+        }
+
+        .box:hover {
+            width: 120px;
+            height: 120px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+        // const box = document.querySelector('.box');
+        // setTimeout(() => {
+        //     box.setAttribute('style', 'width: 150px;');
+        // }, 1000);
+    </script>
+</body>
+</html>

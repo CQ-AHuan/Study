@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+
+    <script>
+
+        // 箭头函数的this指向声明时的上下文的this(全局 函数 class实例)
+
+        // 1.
+        // const fn = () => {
+        //     console.log(this);
+        // };
+
+        // fn(); // window
+
+        // const obj = {
+        //     name: 'zs',
+        //     run: fn,
+        // };
+
+        // obj.run(); // window
+
+        // 2.
+        // const obj = {
+        //     name: 'zs',
+        //     run: () => {
+        //         console.log(this);
+        //     },
+        // };
+
+        // obj.run(); // window
+
+        // 3.
+        // const obj = {
+        //     name: 'zs',
+        //     run() {
+        //         console.log(this);
+
+        //         const f1 = () => {
+        //             console.log(this);
+        //         };
+        //         f1();
+        //     },
+        // };
+
+        // const o1 = {
+        //     name: 'ls',
+        //     run: obj.run,
+        // };
+
+        // // obj.run(); // obj obj
+
+        // o1.run(); // o1 o1
+
+        // 4.
+        // class Animal {
+
+        //     sayHi() {
+        //         console.log(this);
+        //     }
+
+        //     sayHello = () => {
+        //         console.log(this);
+        //     }
+
+        //     static getNameLength() {
+        //         console.log(this);
+
+        //         (() => {
+        //             console.log(this);
+        //         })();
+        //     }
+
+        // }
+
+        // // const a1 = new Animal();
+
+        // // a1.sayHello(); //
+        // // a1.sayHi();
+
+        // Animal.getNameLength(); // Animal Animal
+
+        // 5.
+        document.querySelector('button').addEventListener('click', function () {
+            console.log(this); // button元素
+        });
+
+        document.querySelector('button').addEventListener('click', () => {
+            console.log(this); // window
+        });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .circle {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            border-radius: 50%;
+        }
+
+        @keyframes round {
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg) translateY(-200px);
+            }
+        }
+
+        .mini-circle {
+            width: 50px;
+            height: 50px;
+            background-color: yellowgreen;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(0deg) translateY(-200px);
+            animation: round 2s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle center"></div>
+    <div class="mini-circle center"></div>
+</body>
+</html>

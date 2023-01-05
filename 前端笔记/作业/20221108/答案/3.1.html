@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .card {
+            width: 331px;
+            height: 359px;
+            margin: 100px;
+            box-shadow: 0 8px 16px -10px rgba(0, 0, 30, .7);
+            transition: all 1s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 32px -10px rgba(0, 0, 30, .7);
+        }
+
+        .card .img-wrapper {
+            height: 250px;
+            /* outline: 1px solid green; */
+        }
+
+        .card .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* object-fit: contain; */
+        }
+
+        .card .content {
+            /* 计算属性 */
+            height: calc(100% - 250px);
+            background-color: #fff;
+            padding: 24px 16px;
+            /* 怪异盒子模型 */
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .card .icon-wrapper {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid #aaa;
+            position: absolute;
+            top: 0;
+            transform: translateY(-50%);
+            background-color: #fff;
+        }
+
+        .card .title {
+            font-weight: 600;
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .card .date {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .card .btn {
+            position: absolute;
+            right: 16px;
+            top: 24px;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 12px 16px;
+            box-shadow: 0 8px 16px -10px rgba(0, 0, 30, .7);
+            /* #88f5ff, #37b8a4 */
+            background-image: linear-gradient(to right, red, green, blue);
+            background-size: 200% 100%;
+            /* opacity: 0; */
+            transition: all 1s ease;
+        }
+
+        .card .btn:hover {
+            background-position-x: 100%;
+        }
+
+        .card:hover .btn {
+            opacity: 1;
+        }
+
+        .icon-wrapper::before {
+            content: "Figma";
+            display: block;
+            position: absolute;
+            padding: 4px 8px;
+            background-color: #444;
+            color: #fff;
+            border-radius: 4px;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .icon-wrapper:hover::before {
+            transform: translate(-50%, -110%);
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- 上方大图 -->
+        <div class="img-wrapper">
+            <img src="https://img1.baidu.com/it/u=1261879641,1537199101&fm=253&fmt=auto&app=138&f=JPEG?w=1194&h=500" alt="">
+        </div>
+        <div class="content">
+            <!-- 图标 -->
+            <div class="icon-wrapper">
+                <img class="center" src="https://www.uidesigndaily.com/public/img/figma-logo.svg" alt="" class="icon">
+            </div>
+            <div class="title">Billing Page</div>
+            <div class="date">1 Apr 2022</div>
+            <div class="btn">Download</div>
+        </div>
+    </div>
+</body>
+</html>
